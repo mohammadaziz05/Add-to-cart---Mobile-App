@@ -33,23 +33,6 @@ onValue(shoppingListInDB , function (snapshot) {
     
 })
 
-addBtn.addEventListener("click", () => {
-    let inputValue = inputEl.value
-    push(shoppingListInDB, inputValue)
-    clearInputFieldEl()
-    
-     
-})
-
-function clearShoppingListEl () {
-    shoppinglistEl.innerHTML = ""
-}
-
-function clearInputFieldEl() {
-    inputEl.value = ''
-} 
-
-
 function addToShoppinglistEl(item) {
     let itemID = item[0]
     let itemValue = item[1] 
@@ -63,3 +46,23 @@ function addToShoppinglistEl(item) {
     })
     shoppinglistEl.append(newEl)
 }
+
+addBtn.addEventListener("click", () => {
+    let inputValue = inputEl.value
+    if (inputValue != ""){
+        push(shoppingListInDB, inputValue)
+        clearInputFieldEl()
+    } 
+    
+     
+})
+
+function clearShoppingListEl () {
+    shoppinglistEl.innerHTML = ""
+}
+
+function clearInputFieldEl() {
+    inputEl.value = ''
+} 
+
+
